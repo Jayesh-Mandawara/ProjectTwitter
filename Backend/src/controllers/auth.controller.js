@@ -102,7 +102,23 @@ async function loginUser(req, res) {
     });
 }
 
+async function getMe(req, res) {
+    const userId = req.user.id;
+
+    const user = await userModel.findById(userId);
+    res.status(200).json({
+        message: "User fetched successfully!",
+        user: {
+            username: user.username,
+            email: user.email,
+            bio: user.bio,
+            profilePicture: user.profilePicture,
+        },
+    });
+}
+
 module.exports = {
     registerUser,
     loginUser,
+    getMe,
 };
