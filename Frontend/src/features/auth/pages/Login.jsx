@@ -4,20 +4,24 @@ import { Link, useNavigate } from "react-router";
 import { useAuth } from "../hooks/useAuth";
 
 const Login = () => {
-    const [username, setUserName] = useState("");
+    const [usernameOrEmail, setUsernameOrEmail] = useState("");
     const [password, setPassword] = useState("");
     const { handleLogin, loading } = useAuth();
     const navigate = useNavigate();
 
     if (loading) {
-        return <p>Loading...</p>;
+        return (
+            <div className="loading">
+                <p>Loading...</p>
+            </div>
+        );
     }
 
     async function handleSubmit(e) {
         e.preventDefault();
 
         try {
-            await handleLogin(username, password).then((res) => {
+            await handleLogin(usernameOrEmail, password).then((res) => {
                 console.log("Login successful:", res);
             });
             navigate("/");
@@ -32,9 +36,9 @@ const Login = () => {
                 <h1>Login</h1>
                 <form onSubmit={handleSubmit}>
                     <input
-                        onInput={(e) => setUserName(e.target.value)}
+                        onInput={(e) => setUsernameOrEmail(e.target.value)}
                         type="text"
-                        name="username"
+                        name="usernameOrEmail"
                         placeholder="Enter your username or email here..."
                     />
                     <input
@@ -43,7 +47,9 @@ const Login = () => {
                         name="password"
                         placeholder="Enter your password here..."
                     />
-                    <button type="submit">Login</button>
+                    <button className="button primary-button" type="submit">
+                        Login
+                    </button>
                 </form>
                 <p>
                     Don't have an account?{" "}

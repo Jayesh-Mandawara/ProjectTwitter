@@ -78,9 +78,22 @@ async function likePostController(req, res) {
     });
 }
 
+async function getFeedController(req, res) {
+    const posts = await postModel
+        .find()
+        .sort({ createdAt: -1 })
+        .populate("user");
+
+    res.status(200).json({
+        message: "Feed fetched successfully",
+        posts,
+    });
+}
+
 module.exports = {
     createPostController,
     getPostController,
+    getFeedController,
     getPostDetailsController,
     likePostController,
 };

@@ -5,6 +5,7 @@ const {
     getPostController,
     getPostDetailsController,
     likePostController,
+    getFeedController,
 } = require("../controllers/posts.controller");
 const multer = require("multer");
 const upload = multer({ storage: multer.memoryStorage() });
@@ -22,5 +23,7 @@ postRouter.get("/", identifyUser, getPostController);
 postRouter.get("/details/:postId", identifyUser, getPostDetailsController);
 
 postRouter.post("/like/:postId", identifyUser, likePostController);
+
+postRouter.get("/feed", identifyUser, getFeedController);
 
 module.exports = postRouter;

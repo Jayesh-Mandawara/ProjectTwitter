@@ -1,0 +1,27 @@
+@use "./button.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,
+body,
+#root {
+    width: 100%;
+}
+html {
+    background-color: rgb(19, 19, 19);
+    color: antiquewhite;
+}
+.loading {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+}

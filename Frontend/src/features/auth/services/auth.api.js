@@ -19,10 +19,12 @@ async function register(username, email, password) {
     }
 }
 
-async function login(username, password) {
+async function login(usernameOrEmail, password) {
     try {
+        const isEmail = usernameOrEmail.includes("@");
         const response = await api.post("/login", {
-            username,
+            username: isEmail ? undefined : usernameOrEmail,
+            email: isEmail ? usernameOrEmail : undefined,
             password,
         });
         return response.data;

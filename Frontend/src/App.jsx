@@ -1,3 +1,4 @@
+import "./features/shared/global.scss"; 
 import AppRoutes from "./AppRoutes";
 import { AuthProvider } from "./features/auth/auth.context.jsx";
 
