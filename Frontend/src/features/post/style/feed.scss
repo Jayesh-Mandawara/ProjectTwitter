@@ -1,0 +1,104 @@
+.feed-page {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-block: 1rem;
+
+    h1 {
+        color: antiquewhite;
+    }
+
+    .feed {
+        max-width: 30rem;
+        width: 100%;
+        color: rgb(19, 19, 19);
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        .post {
+            background-color: antiquewhite;
+            border-radius: 10px;
+            .user,
+            .bottom {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0.8rem;
+                gap: 10px;
+                font-weight: 500;
+
+                .user-data {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+
+                .image-wrapper {
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 2px solid transparent;
+                    background: conic-gradient(
+                            from -30deg,
+                            purple,
+                            rgb(255, 69, 100),
+                            orange,
+                            yellow,
+                            rgb(255, 69, 100),
+                            purple
+                        )
+                        border-box;
+                }
+
+                img {
+                    width: 2.5rem;
+                    aspect-ratio: 1/1;
+                    border-radius: 50%;
+                }
+
+                button {
+                    padding: 0.5rem 0.8rem;
+                    border-radius: 1rem;
+                    border: none;
+                    outline: none;
+                    background-color: royalblue;
+                    color: antiquewhite;
+                    cursor: pointer;
+
+                    &:active {
+                        scale: 0.98;
+                    }
+                }
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .actionIcons {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: -15px;
+
+                svg {
+                    width: 1.5rem;
+                    aspect-ratio: 1/1;
+                    color: rgb(19, 19, 19);
+                }
+
+                button {
+                    background-color: transparent;
+                    padding: 0.5rem;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

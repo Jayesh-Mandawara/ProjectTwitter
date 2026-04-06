@@ -15,7 +15,11 @@ main {
 
 .form-container {
     min-width: 400px;
-    @include flex-column(1.5rem);
+    @include flex-column(1rem);
+
+    h1 {
+        padding-inline: 0.3rem;
+    }
 
     form {
         @include flex-column(1rem);
@@ -29,7 +33,7 @@ main {
     }
 
     p {
-        margin-top: -0.5rem;
+        margin-top: -0.2rem;
         font-size: 0.9rem;
         text-align: end;
         padding-inline: 0.5rem;
