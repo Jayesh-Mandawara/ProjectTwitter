@@ -79,7 +79,11 @@ async function likePostController(req, res) {
 }
 
 async function getFeedController(req, res) {
-    const postsData = await postModel.find().sort({ createdAt: -1 }).populate("user").lean();
+    const postsData = await postModel
+        .find()
+        .sort({ _id: -1 })
+        .populate("user")
+        .lean();
 
     const posts = await Promise.all(
         postsData.map(async (post) => {
@@ -89,12 +93,32 @@ async function getFeedController(req, res) {
             });
             post.isLiked = !!isLiked;
             return post;
-        })
+        }),
     );
 
     res.status(200).json({
         message: "Feed fetched successfully",
         posts,
+    });
+}
+
+async function unlikePostController(req, res) {
+    const postId = req.params.postId;
+    const username = req.user.username;
+
+    const isLiked = await likeModel.findOne({
+        post: postId,
+        user: username,
+    });
+    if (!isLiked) {
+        return res.status(400).json({
+            message: "Post didn't liked!",
+        });
+    }
+    await likeModel.findOneAndDelete({ _id: isLiked._id });
+
+    return res.status(200).json({
+        message: "Post unliked successfully!",
     });
 }
 
@@ -104,4 +128,5 @@ module.exports = {
     getFeedController,
     getPostDetailsController,
     likePostController,
+    unlikePostController,
 };

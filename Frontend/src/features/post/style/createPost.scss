@@ -1,0 +1,14 @@
+.post-image-label {
+    background-color: antiquewhite;
+    color: rgb(19, 19, 19);
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    width: fit-content;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color: rgb(33, 33, 33);
+        color: antiquewhite;
+    }
+}
