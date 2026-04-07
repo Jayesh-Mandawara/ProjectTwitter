@@ -1,0 +1,50 @@
+{
+  "likes": [
+    {
+      "_id": "69d546138a4ee84fbff24a93",
+      "post": "69d543b2656142b3bca555d5",
+      "user": "test2",
+      "createdAt": "2026-04-07T17:59:47.646Z",
+      "updatedAt": "2026-04-07T17:59:47.646Z",
+      "__v": 0
+    },
+    {
+      "_id": "69d546a8941f7377f66c5930",
+      "post": "69d543d7656142b3bca555d7",
+      "user": "test2",
+      "createdAt": "2026-04-07T18:02:16.549Z",
+      "updatedAt": "2026-04-07T18:02:16.549Z",
+      "__v": 0
+    }
+  ],
+  "posts": [
+    {
+      "_id": "69d543b2656142b3bca555d5",
+      "caption": "test_caption",
+      "imgUrl": "https://ik.imagekit.io/8rco1uytdi/ProjectTwitter/Test_a8GkSSNWj",
+      "user": "69d154bfa041a41793d70b5b",
+      "__v": 0
+    },
+    {
+      "_id": "69d543d7656142b3bca555d7",
+      "caption": "test_caption",
+      "imgUrl": "https://ik.imagekit.io/8rco1uytdi/ProjectTwitter/Test_6T9amZ9oA",
+      "user": "69d154bfa041a41793d70b5b",
+      "__v": 0
+    },
+    {
+      "_id": "69d5440d656142b3bca555da",
+      "caption": "test2_caption",
+      "imgUrl": "https://ik.imagekit.io/8rco1uytdi/ProjectTwitter/Test_tHUUgISK3",
+      "user": "69d54330656142b3bca555d0",
+      "__v": 0
+    },
+    {
+      "_id": "69d5442e656142b3bca555dc",
+      "caption": "test2_caption",
+      "imgUrl": "https://ik.imagekit.io/8rco1uytdi/ProjectTwitter/Test_6p5-ySN3a",
+      "user": "69d54330656142b3bca555d0",
+      "__v": 0
+    }
+  ]
+}

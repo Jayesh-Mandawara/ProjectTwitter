@@ -28,7 +28,18 @@ async function createPostController(req, res) {
 async function getPostController(req, res) {
     const userId = req.user.id;
 
-    const posts = await postModel.find({ user: userId });
+    const postsData = await postModel.find({ user: userId }).lean();
+
+    const posts = await Promise.all(
+        postsData.map(async (post) => {
+            const isLiked = await likeModel.findOne({
+                user: req.user.username,
+                post: post._id,
+            });
+            post.isLiked = isLiked;
+            return post;
+        }),
+    );
 
     res.status(200).json({
         message: "Posts fetched successfully",
@@ -79,11 +90,21 @@ async function likePostController(req, res) {
 }
 
 async function getFeedController(req, res) {
-    const posts = await postModel
+    const postsData = await postModel
         .find()
         .sort({ createdAt: -1 })
-        .populate("user");
-
+        .populate("user")
+        .lean();
+    const posts = await Promise.all(
+        postsData.map(async (post) => {
+            const isLiked = await likeModel.findOne({
+                user: req.user.username,
+                post: post._id,
+            });
+            post.isLiked = !!isLiked;
+            return post;
+        }),
+    );
     res.status(200).json({
         message: "Feed fetched successfully",
         posts,
