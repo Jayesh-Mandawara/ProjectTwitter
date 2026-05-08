@@ -10,8 +10,7 @@ const Navbar = () => {
                 onClick={() => {
                     navigate("/create-post");
                 }}
-                className="button primary-button"
-            >
+                className="button primary-button">
                 New Post
             </button>
         </nav>
